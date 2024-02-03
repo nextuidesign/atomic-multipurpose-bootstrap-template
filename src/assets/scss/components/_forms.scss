@@ -1,0 +1,18 @@
+//
+// Extended form from bootstrap
+//
+
+
+
+.form-control-flush {
+    border: 0;
+    border-radius: 0;
+
+    &:focus {
+        color: #495057;
+        background-color: #fff;
+        border-bottom-color: $gray-400;
+        outline: 0;
+        box-shadow: none;
+    }
+}

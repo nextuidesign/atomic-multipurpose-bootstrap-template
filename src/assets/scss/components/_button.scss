@@ -1,0 +1,90 @@
+//
+// Extended buttons from bootstrap
+//
+
+.btn {
+  --#{$prefix}btn-border-radius: 0;
+  --#{$prefix}btn-box-shadow: null;
+  background-image: unset;
+
+  &-primary {
+    border: 1px solid #{$primary};
+  }
+  &-secondary {
+    border: 1px solid #{$secondary};
+  }
+  &-success {
+    border: 1px solid #{$success};
+  }
+  &-info {
+    border: 1px solid #{$info};
+  }
+  &-warning {
+    border: 1px solid #{$warning};
+  }
+  &-danger {
+    border: 1px solid #{$danger};
+  }
+
+  &-secondary,
+  &-success,
+  &-info,
+  &-danger {
+    color: #{$white};
+
+    &:hover {
+      color: #{$white}
+    }
+  }
+
+  &-ic {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+//
+// Alternate buttons
+//
+
+// scss-docs-start btn-variant-loops
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @if $color == "light" {
+      @include button-variant(
+        $value,
+        $value,
+        $hover-background: shade-color($value, $btn-hover-bg-shade-amount),
+        $hover-border: shade-color($value, $btn-hover-border-shade-amount),
+        $active-background: shade-color($value, $btn-active-bg-shade-amount),
+        $active-border: shade-color($value, $btn-active-border-shade-amount)
+      );
+    } @else if $color == "dark" {
+      @include button-variant(
+        $value,
+        $value,
+        $hover-background: tint-color($value, $btn-hover-bg-tint-amount),
+        $hover-border: tint-color($value, $btn-hover-border-tint-amount),
+        $active-background: tint-color($value, $btn-active-bg-tint-amount),
+        $active-border: tint-color($value, $btn-active-border-tint-amount)
+      );
+    } @else {
+      @include button-variant($value, $value);
+    }
+  }
+}
+
+//
+// Link Buttons
+//
+.btn-link {
+  --#{$prefix}btn-font-weight: #{$font-weight-medium};
+}
+
+
+$color-mode-type: media-query;
+
+@include color-mode(dark) {
+
+}

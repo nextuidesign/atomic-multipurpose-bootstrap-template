@@ -1,0 +1,48 @@
+/*
+=========================================================
+* ORIGIN - Bootstrap 5 Template Block
+=========================================================
+* Product Page: https://nextui.design/origin/index.html
+* Copyright 2024 Next UI Design (https://nextui.design/)
+* Designed and coded by https://nextui.design/
+========================================================= */
+
+// Inter Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+// Bootstrap functions
+@import "../../../node_modules/bootstrap/scss/functions";
+
+// props
+@import "props";
+
+// User Variables
+@import "user-variables";
+
+// theme variables
+@import "variables";
+@import "variables-dark";
+
+//utilities
+@import "utilities";
+
+// Bootstrap
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+// Foundations
+@import "foundations";
+
+// Components
+@import "components";
+
+// Blocks
+@import "blocks";
+
+// Forms
+@import "forms";
+
+// Vendor
+@import "vendor";
+
+// User
+@import "user";

@@ -1,0 +1,42 @@
+
+.marquee-anim {
+    animation: marquee 20s linear infinite;
+
+    @include  media-breakpoint-down(md) {
+        animation: marquee 5s linear infinite;
+    }
+
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+.marquee-anim-reverse {
+    animation: marquee-reverse 20s linear infinite;
+
+    @include  media-breakpoint-down(md) {
+        animation: marquee-reverse 5s linear infinite;
+    }
+
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+@keyframes marquee {
+    0% { left: 0; }
+    100% { left: -50%; }
+
+    @include media-breakpoint-down(md) {
+        100% { left: -100%; }
+    }
+
+}
+@keyframes marquee-reverse {
+    0% { left: -50%; }
+    100% { left: 0; }
+
+    @include media-breakpoint-down(md) {
+        0% { left: -100%; }
+    }
+}

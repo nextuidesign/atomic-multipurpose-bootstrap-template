@@ -1,0 +1,178 @@
+// Base class
+//
+// Kickstart any navigation component with a set of style resets. Works with
+// `<nav>`s, `<ul>`s or `<ol>`s.
+//
+
+.nav {
+    &-link {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+    }
+    &-primary {
+        .nav-link {
+            &.active {
+                background-color: $primary !important;
+
+                .badge {
+                    background-color: $white !important;
+                    color: $primary !important;
+                }
+            }
+        }
+    }
+    &-outline {
+        &-primary {
+            svg {
+                fill: #{$dark};
+            }
+
+            .nav-link {
+                border: 1px solid #{$gray-300};
+
+                &.active {
+                    background-color: rgba($primary, .2) !important;
+                    border: 1px solid #{$primary};
+                    color: #{$primary} !important;
+
+                    svg {
+                        fill: #{$primary};
+                    }
+                }
+
+                &:hover {
+                    svg {
+                        fill: #{$primary};
+                    }
+                }
+            }
+        }
+    }
+    &-arrows {
+        .nav-link {
+            &.active {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: transparent !important;
+                border-bottom: 1px solid $dark !important;
+
+                > span {
+                    display: block !important;
+                }
+            }
+        }
+    }
+}
+
+//
+// Tabs
+//
+
+.nav-tabs {
+    // scss-docs-start nav-tabs-css-vars
+    --#{$prefix}nav-tabs-border-width: #{$nav-tabs-border-width};
+    --#{$prefix}nav-tabs-border-color: #{$nav-tabs-border-color};
+    --#{$prefix}nav-tabs-border-radius: #{$nav-tabs-border-radius};
+    --#{$prefix}nav-tabs-link-hover-border-color: #{$nav-tabs-link-hover-border-color};
+    --#{$prefix}nav-tabs-link-active-color: #{$nav-tabs-link-active-color};
+    --#{$prefix}nav-tabs-link-active-bg: #{$nav-tabs-link-active-bg};
+    --#{$prefix}nav-tabs-link-active-border-color: #{$nav-tabs-link-active-border-color};
+    // scss-docs-end nav-tabs-css-vars
+    border-bottom: none;
+
+    .nav-link {
+        margin-bottom: calc(-1 * var(--#{$prefix}nav-tabs-border-width)); // stylelint-disable-line function-disallowed-list
+        border-bottom: var(--#{$prefix}nav-tabs-border-width) solid var(--#{$prefix}nav-tabs-border-color);
+        font-size: 1.125rem;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        font-weight: #{$font-weight-normal};
+        color: #{$gray-500};
+        @include border-top-radius(var(--#{$prefix}nav-tabs-border-radius));
+
+        svg {
+            stroke: #{$gray-500};
+        }
+
+        &:hover,
+        &:focus {
+            isolation: isolate;
+            border-color: transparent;
+            border-bottom-color: #{$primary};
+            font-weight: #{$font-weight-semibold};
+            color: #{$primary};
+
+            svg {
+                stroke: #{$primary};
+            }
+        }
+    }
+
+    .nav-link.active,
+    .nav-item.show .nav-link {
+        --#{$prefix}nav-tabs-border-color-active: #{$primary};
+
+        font-weight: #{$font-weight-semibold};
+        border-bottom: var(--#{$prefix}nav-tabs-border-width) solid var(--#{$prefix}nav-tabs-border-color-active);
+        color: #{$primary};
+        background-color: var(--#{$prefix}nav-tabs-link-active-bg);
+
+        svg {
+            stroke: #{$primary};
+        }
+    }
+}
+
+// Pills
+//
+
+.nav-pills {
+    --#{$prefix}nav-pills-border-radius: #{$nav-pills-border-radius};
+    --#{$prefix}nav-pills-link-active-color: #{$nav-pills-link-active-color};
+
+    &.nav-pills-ic {
+        .nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: 500;
+            border-bottom: 1px solid $gray-300;
+            border-radius: 0;
+
+            &.active {
+                background-image: unset;
+                border-radius: 12px;
+
+                &::after {
+                    $nav-pill-ic-color-active: '%23ffffff';
+
+                    background-image: url("data:image/svg+xml,<svg fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M9 5.5L16 12.5L9 19.5' stroke='#{$nav-pill-ic-color-active}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+                }
+            }
+            &::after {
+                $nav-pill-ic-color: '%23111B29';
+
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                position: relative;
+                content: '';
+                background-image: url("data:image/svg+xml,<svg fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M9 5.5L16 12.5L9 19.5' stroke='#{$nav-pill-ic-color}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+            }
+        }
+    }
+
+    .nav-link {
+        @include border-radius(var(--#{$prefix}nav-pills-border-radius));
+    }
+
+    .nav-link.active,
+    .show > .nav-link {
+        color: var(--#{$prefix}nav-pills-link-active-color);
+        background-color: $dark;
+    }
+}
