@@ -1,8 +1,8 @@
 /*
 =========================================================
-* ORIGIN - Bootstrap 5 Template Block
+* Atomik - Multipurpose Bootstrap 5 Template
 =========================================================
-* Product Page: https://nextui.design/origin/index.html
+* Product Page: https://github.com/nextuidesign/atomik-multipurpose-bootstrap-template
 * Copyright 2024 Next UI Design (https://nextui.design/)
 * Designed and coded by https://nextui.design/
 ========================================================= */
@@ -12,9 +12,6 @@
 
 // Bootstrap functions
 @import "../../../node_modules/bootstrap/scss/functions";
-
-// props
-@import "props";
 
 // User Variables
 @import "user-variables";
@@ -29,20 +26,11 @@
 // Bootstrap
 @import "../../../node_modules/bootstrap/scss/bootstrap";
 
-// Foundations
-@import "foundations";
-
 // Components
 @import "components";
 
-// Blocks
-@import "blocks";
-
 // Forms
 @import "forms";
-
-// Vendor
-@import "vendor";
 
 // User
 @import "user";

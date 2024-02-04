@@ -15,17 +15,14 @@
 
 })();
 
-var mySwiper1 = document.querySelector('.hero-swiper').slider;
-
-mySwiper1 = new Swiper('.hero-swiper', {
-    grabCursor: false,
+const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
     loop: true,
-    slidesPerView: 'auto',
-    allowTouchMove: false,
-    autoplay: {
-        delay: 1,
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
     },
-    freeMode: true,
-    speed: 5000,
 });
 
